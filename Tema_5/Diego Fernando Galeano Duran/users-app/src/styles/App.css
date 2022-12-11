@@ -1,0 +1,9 @@
+.App {
+  background:#ffffff;
+}
+.cards-container{
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #eaeff1;
+}

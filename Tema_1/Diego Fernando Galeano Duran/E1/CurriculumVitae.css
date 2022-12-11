@@ -1,0 +1,94 @@
+.curriculum-vitae{
+    font-family: 'Source Sans Pro';
+    margin:0;
+}
+.main-title-container{
+    text-align: center;
+    color:#ffffff;
+    background: #4d4d4d;
+    padding: 0.5rem;
+    position:relative;
+}
+.main-title{
+    font-weight: normal;
+    font-size: 3.4rem;
+    margin: 0;
+}
+.last-update-text{
+    position: absolute;
+    right: 0.05rem;
+    top: 0.09rem;
+    font-size: 0.8rem;
+}
+
+.main-content{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 1rem 16rem;
+}
+
+.left-container{
+    flex: 0 0 30%;
+    padding-right:0.5rem;
+    text-align: right;
+}
+.right-container{
+    padding-left:0.5rem;
+}
+.photo-container img{
+    width:100%;
+}
+
+h2,h3,p{
+    margin: 0.1rem;
+}
+
+.side-section,.section{
+    padding: 0.5rem 0; 
+}
+
+.section-title.blue{
+    color: #66d9ee;
+}
+
+.section-title.fuchsia{
+    color: #fa2772;
+}
+
+.section-title.orange{
+    color: #fe9720;
+}
+
+.section-title.green{
+    color: #a7e22e;
+}
+
+.section-title.purple{
+    color: #9358fe;
+}
+
+.section-splitted-container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.section-splitted-left{
+    flex: 0 0 30%;
+}
+.section-splitted-left.small{
+    flex: 0 0 20%;
+}
+
+.section-splitted-right{
+    width:100%;
+}
+.section-splitted-title{
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 1280px) {
+    .main-content{
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 1rem 1rem;
+    }
+}

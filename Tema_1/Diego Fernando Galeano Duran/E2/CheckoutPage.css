@@ -1,0 +1,16 @@
+.checkout-page{
+    background:#f8f9fa;
+}
+
+.items-quantity{
+    background: #6c757d;
+    border-radius: 1rem;
+    padding: 0.1rem 0.6rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.list-group-item.benefit-item{
+    color:#22a440;
+    background:#f8f9fa;
+}
