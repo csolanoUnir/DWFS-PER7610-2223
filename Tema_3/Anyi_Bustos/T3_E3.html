@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <script lang="javascript">
+        function chucknorris() {
+            fetch('https://api.chucknorris.io/jokes/random')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("chiste").innerHTML = data.value;
+            })
+            .catch(e => {
+                document.getElementById("chiste").innerHTML = 'Error fecth chucknorris' + e.message;
+            });
+        }
+
+    </script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384- Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>chucknorris</title>
+</head>
+
+<body>
+    <button type="button" class="btn btn-info" onclick="chucknorris()">
+        Dame un chiste!
+    </button>
+    <p id="chiste"></p>
+</body>
+
+</html>
+<title
