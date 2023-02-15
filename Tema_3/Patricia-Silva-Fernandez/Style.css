@@ -1,0 +1,10 @@
+body{
+    background-color: #102d40;
+}
+#principal{
+    display: flex;
+    align-items: center;
+}
+#chiste{
+    color:yellow
+}

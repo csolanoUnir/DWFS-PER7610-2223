@@ -1,0 +1,26 @@
+.Card {
+  padding-top: 20px;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 12px;
+  height: 216px;
+  object-fit: cover;
+}
+
+.card {
+  width: 20rem;
+  text-align: left;
+  padding-inline: 7px;
+  padding-top: 7px;
+}
+
+.tag {
+  padding: 4px 8px;
+  border: 1px solid #9b9fa1;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5f6a77;
+}

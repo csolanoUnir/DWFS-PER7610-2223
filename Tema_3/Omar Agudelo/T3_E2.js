@@ -10,15 +10,18 @@
  * Duplicador
  * 
  * Se pide: Mediante funciones de primer orden, crear una funcion duplicador que recibe como argumento un array de numeros y devuelve otro array duplicando aquellos que sean pares
- * El tamaño del array resultado, por tanto, podra ser distinto del tamaño del array original
+ * El tamano del array resultado, por tanto, podra ser distinto del tamano del array original
  * 
  * Ejemplo: duplicador([1,2,3,4]) -> [4,8]
  */
-
-function duplicador(numeros) {
-    return numeros.filter(n => n % 2 === 0).map(n => n * 2);
-}
-
+ function duplicador(arr){
+    arr.forEach(num => {
+        if((num%2)==0){
+            resultado.push(num*2) 
+        }
+    });
+    return resultado;
+ }
 
 /**
  * Funcion 2
@@ -29,11 +32,9 @@ function duplicador(numeros) {
  * 
  * Ejemplo: media([1,2,3,4]) -> 2.5
  */
-
-function media(numeros) {
-    return numeros.reduce((accumulator, currentvalue) => accumulator + currentvalue, 0) / numeros.length;
-
-}
+    function media(arr){
+        return arr.reduce((total,value)=>total+value)/arr.length;
+    }
 
 /**
  * Funcion 3
@@ -45,12 +46,16 @@ function media(numeros) {
  * 
  * Ejemplo: eliminarDuplicados([5,1,2,1,3,3,4,5]) -> [2,4]
  */
-
-function eliminarDuplicados(numeros) {
-    let setUniques = new Set();
-    numeros.forEach(n => setUniques.add(n));
-    return Array.from(setUniques);
-}
+ function eliminarDuplicados(arr){
+    arr.sort();
+    let unicos = [];
+    arr.forEach((num,index)=>{
+        if(num!==arr[index+1] & num!==arr[index-1]){
+            unicos.push(num)
+        }
+    })
+    return unicos
+ }
 
 
 /**
@@ -68,32 +73,13 @@ function eliminarDuplicados(numeros) {
  * Ejemplo: nCharConsec(*, 4, "Est* *** es un ejemplo") -> false (tenemos en cuenta los espacios)
  * Ejemplo: nCharConsec(*, 4, "Est**** es un ejemplo") -> true 
  * Ejemplo: nCharConsec(*, 4, "Est** e* un ej**plo") -> false
- * Ejemplo: nCharConsec(*, 4, "Est** e**** un ej**plo") -> false
  * 
  */
+ function nCharConsec(caracter,numero,cadena){
+    return cadena.indexOf(caracter.repeat(numero))
+ }
 
-function nCharConsec(caracter, num, cadena) {
-    let count = 0;
-    let previusChar = null;
-    cadena.split('').forEach((charit, idx) => {
-        if (idx > 0 && previusChar!=null) {
-            previusChar = cadena[idx - 1];
-        }
-        if (charit === caracter) {
-            if (previusChar===null){
-                previusChar = charit;
-            }
-            if (previusChar === charit) {
-                count++;
-            }            
-        }
-        else {
-            count = 0;
-            previusChar = null;
-        }
-    });
-    return count === num;
-}
+
 
 
 /**
@@ -102,9 +88,9 @@ function nCharConsec(caracter, num, cadena) {
  * Generador de numeros aleatorios
  * 
  * Se pide: Mediante funciones de primer orden, crear una funcion generador que recibe 1 argumento:
- * - N: El tamaño del mapa a devolver
+ * - N: El tamano del mapa a devolver
  * 
- * Este metodo creara en primer lugar un array de numeros aleatorios no repetidos, de tamaño N.
+ * Este metodo creara en primer lugar un array de numeros aleatorios no repetidos, de tamano N.
  * Despues filtrara el array para eliminar los 0 y los duplicados, si hay alguno.
  * Despues, creara un mapa donde: 
  * - Las claves seran los valores de cada una de las coordenadas del array creado
@@ -118,42 +104,30 @@ function nCharConsec(caracter, num, cadena) {
  * [6, 4] (2+6 /2 = 4)
  * [7, 5] (2+6+7 /3 = 5)
  * [1, 4] (2+6+7+1 /4 = 4)
+ * 
+ * 
+ * 
+ * 
  */
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function generador(n){
-    let randomArray = [];
-    for(let i=0;i<n;i++){
-        randomArray.push(getRandomInt(n));
-    }
-
-    let setUniques = new Set();
-    randomArray.forEach(n=>setUniques.add(n));
-
-    let randomUniqueArray = Array.from(setUniques);
-    let resultMap = new Map();
-    let itArrayValues = [];
-    randomUniqueArray.forEach(it=>{
-        itArrayValues.push(it);
-        resultMap.set(it,media(itArrayValues));
+function generador(num){
+    // let arr = Array.from({length: 10}, () => Math.floor(Math.random() * 10 + 1 ));
+    let arr =[2,6,7,1];
+    arr = arr.filter((item,index)=>{
+        return arr.indexOf(item) === index;
+    })
+    total = 0;
+    resp='';
+    sumCadena='';
+    let map = new Map();
+    arr.forEach((num,index)=>{
+        sumCadena = sumCadena.concat(num);
+        total += num;
+        numMedia = Math.floor((total/(index+1)));
+        map.set(num, numMedia);
+        console.log(resp.concat('[',num,', ',numMedia,'] (',sumCadena,' /',index+1,' = ',numMedia,')')
+        );
+        sumCadena = sumCadena.concat('+');
     });
-
-    return resultMap;
-
+    return map;
 }
-
-console.log("T3_E2 TEST");
-console.log("duplicador([1,2,3,4]):",duplicador([1,2,3,4]));
-console.log("media([1,2,3,4]):",media([1,2,3,4]));
-console.log("eliminarDuplicados([5,1,2,1,3,3,4,5]):",eliminarDuplicados([5,1,2,1,3,3,4,5]));
-
-console.log("nCharConsec(*, 4, 'Est* *** es un ejemplo'):",nCharConsec('*', 4, 'Est* *** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est**** es un ejemplo')",nCharConsec('*', 4, 'Est**** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est** e* un ej**plo')",nCharConsec('*', 4, 'Est** e* un ej**plo'));
-console.log("nCharConsec(*, 4, 'Est** e**** un ej**plo')",nCharConsec('*', 4, 'Est** e**** un ej**plo'));
-
-console.log("generador(6):", generador(6));
-

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <title>Generador chiste chuck norris</title>
+    </head>
+
+<style>
+    body{
+        background-color: #1b1f2d !important;
+    }
+    p{
+        color: #e4be53;
+    }
+</style>
+
+
+
+
+<body>
+    <div class="container p-5">
+        <button type="button" class="btn btn-primary me-3" onclick="generarChiste()">Generate</button>
+        <p>Here goes the joke</p>
+    </div>
+</body>
+</html>
+
+
+<script src="T3_E1.js"></script>
+<script src="T3_E2.js"></script>
+<script lang="javascript">
+    function generarChiste(){
+        fetch('https://api.chucknorris.io/jokes/random')
+        .then(response => response.json()) 
+        .then(json => {
+            console.log(json.value)
+            
+            document.body.querySelector("p").innerHTML = json.value;
+        })
+        .catch(e => {
+            
+            document.body.querySelector("p").innerHTML = 'Problema con fetch' + e.message;
+        });
+    }
+</script>

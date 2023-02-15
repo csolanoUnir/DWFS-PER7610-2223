@@ -1,0 +1,8 @@
+
+.contcard{
+  display: flex;
+  margin: 10px 0px;
+  width: 20rem;
+  text-align: center;
+  margin-left: 40%;
+}

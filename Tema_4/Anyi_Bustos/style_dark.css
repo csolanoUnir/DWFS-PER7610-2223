@@ -1,0 +1,102 @@
+.cont-main{
+    background-color:black; 
+    padding: 30px; 
+    margin: 100px 30%;
+}
+
+.cont-head{
+    border-style: none none solid none; 
+    border-color: white;
+}
+
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: unset;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 40px;
+    color: gray;
+}
+
+.subtitle{
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 25px; 
+    font-family:'Courier New', Courier, monospace; 
+    font-size: 20px;
+    color: rgb(150, 144, 144);
+}
+
+.subtitle-section{
+    margin-bottom: unset;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 20px;
+    color: #e4eeae;
+}
+
+.text-section {
+    margin-bottom: unset;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    color: white;
+    font-size: 13px;
+    width: 80%;
+}
+
+.text-section-small {
+    margin-bottom: unset;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    color: white;
+    font-size: 10px;
+    display: block;
+}
+
+.pd{
+    padding-left: 15px;
+}
+
+ul{
+    list-style: none;
+    padding-left: unset;
+}
+
+li {
+    margin-bottom: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    color: white;
+}
+
+.fa-phone, .fa-solid, .fa-circle, .checked {
+    color: #fcff9e;
+  }
+
+.list-puntuation{
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
+}
+
+.fa-star{
+    size: 5px;
+}
+
+a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    color: white;
+    font-size: 10px;
+}
+
+.border-left {
+    border-style: none none none dotted; 
+    border-color: white;
+}

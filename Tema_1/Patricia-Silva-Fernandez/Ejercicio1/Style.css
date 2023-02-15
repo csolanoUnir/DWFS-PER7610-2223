@@ -1,0 +1,79 @@
+body{
+    background-color: #102d40;
+}
+#titulo{
+    text-align: center;
+    margin-top: 65px;
+    border-bottom: solid white;
+    color:#28b728;
+}
+#titulo p{
+    margin-bottom: 30px;
+}
+.seccion h2{
+    color:#28b728;
+}
+.seccion p{
+    color:white;
+}
+.seccion{
+    margin-bottom: 40px;
+}
+.izquierda, .derecha{
+    margin-left: 6%;
+    margin-right: 6%;
+    width: 50%;
+    text-align: justify;
+}
+.fila{
+    display: flex;
+    justify-content: center;
+}
+ul{
+    color:white;
+    margin-left: -23px;
+}
+li{
+    margin-bottom: 20px;
+}
+#contacto img{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+#contacto p{
+    display: contents;
+}
+#contacto div{
+    display: flex;
+    margin-bottom: 20px;
+}
+.nombre{
+    font-weight: bold;
+}
+.fecha{
+    font-size: 13px;
+}
+#hab div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#hab p{
+    margin-right: 10px;
+}
+.circulo {
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+    margin-right: 5px;
+}
+#blanco{
+    background: #99a6af !important;
+}
+.estrellas{
+    margin-right: 35%;
+}
