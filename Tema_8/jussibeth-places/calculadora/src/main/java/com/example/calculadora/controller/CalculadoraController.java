@@ -26,8 +26,8 @@ public class CalculadoraController {
     private final OperacionService service;
 
     @GetMapping("/test")
-    public String getTest() {
-        return "OK";
+    public ResponseEntity<String> getTest() {
+        return new ResponseEntity<String>("OK", HttpStatus.OK);
     }
 
     @GetMapping("/operaciones")
@@ -38,7 +38,7 @@ public class CalculadoraController {
         if (operacion != null) {
             return ResponseEntity.ok(operacion);
         } else {
-            return ResponseEntity.ok(Collections.emptyList());
+            return new ResponseEntity<List<Operacion>>(Collections.emptyList(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -50,7 +50,7 @@ public class CalculadoraController {
         if (operacion != null) {
             return ResponseEntity.ok(operacion);
         } else {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity<Operacion>(HttpStatus.BAD_REQUEST);
         }
 
     }
@@ -63,7 +63,7 @@ public class CalculadoraController {
         if (Boolean.TRUE.equals(removed)) {
             return ResponseEntity.ok().build();
         } else {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
 
     }
@@ -76,7 +76,7 @@ public class CalculadoraController {
         if (createdOperacion != null) {
             return ResponseEntity.status(HttpStatus.CREATED).body(createdOperacion);
         } else {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<Operacion>(HttpStatus.BAD_REQUEST);
         }
 
     }

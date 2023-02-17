@@ -5,13 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.ArrayList;
-import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import com.example.calculadora.data.OperacionRepository;
 import com.example.calculadora.model.pojo.Operacion;
