@@ -48,7 +48,7 @@ public class OperacionServicelmpl implements OperacionService {
         }
     }
 
-    public double sumar(List valores) {
+    private double sumar(List valores) {
         double resultado = 0;
         for (Object numero : valores) {
             resultado = resultado +  Double.parseDouble((String) numero);
@@ -56,7 +56,7 @@ public class OperacionServicelmpl implements OperacionService {
         return resultado;
     }
 
-    public double restar(List valores) {
+    private double restar(List valores) {
         double resultado = 0;
         for (Object numero : valores) {
             resultado = resultado -  Double.parseDouble((String) numero);
@@ -64,22 +64,22 @@ public class OperacionServicelmpl implements OperacionService {
         return resultado;
     }
 
-    public double multiplicar(double numero1, double numero2) {
+    private double multiplicar(double numero1, double numero2) {
         return numero1 * numero2;
     }
 
-    public double dividir(double numero1, double numero2) throws Exception {
+    private double dividir(double numero1, double numero2) throws Exception {
         if (numero2 == 0){
             throw new ArithmeticException("/ por cero");
         }
         return numero1 / numero2;
     }
 
-    public double potencia(double nesima, double numero){
+    private double potencia(double nesima, double numero){
         return Math.pow(numero,nesima);
     }
 
-    public double raiz(double nesima, double numero){
+    private double raiz(double nesima, double numero){
         double resultado = Math.pow(numero, 1.0/nesima);
        return resultado;
     }
@@ -106,12 +106,7 @@ public class OperacionServicelmpl implements OperacionService {
             if(request.getType().trim().equals("multiplica")){
                 OperacionServicelmpl operacionmultiplica = new OperacionServicelmpl();
                 String[] arregloCadena = request.getValores().split(", ");
-                List<String> listaModificable = new ArrayList<>(List.of(arregloCadena));
-                String numero1 = "0";
-                String numero2 = "0";
-                numero1= listaModificable.get(0);
-                numero2= listaModificable.get(1);
-                double resultado = operacionmultiplica.multiplicar(Double.parseDouble(numero1),Double.parseDouble(numero2));
+                double resultado = operacionmultiplica.multiplicar(Double.parseDouble(arregloCadena[0]),Double.parseDouble(arregloCadena[1]));
                 Operacion operacion = Operacion.builder().type(request.getType()).resultado(resultado)
                         .valores(request.getValores()).build();
                 return repository.save(operacion);
@@ -120,13 +115,8 @@ public class OperacionServicelmpl implements OperacionService {
             if(request.getType().trim().equals("divide")){
                 OperacionServicelmpl operaciondividir = new OperacionServicelmpl();
                 String[] arregloCadena = request.getValores().split(", ");
-                List<String> listaModificable = new ArrayList<>(List.of(arregloCadena));
-                String numero1 = "0";
-                String numero2 = "0";
-                numero1= listaModificable.get(0);
-                numero2= listaModificable.get(1);
                 try {
-                    double resultado = operaciondividir.dividir(Double.parseDouble(numero1),Double.parseDouble(numero2));
+                    double resultado = operaciondividir.dividir(Double.parseDouble(arregloCadena[0]),Double.parseDouble(arregloCadena[1]));
                     Operacion operacion = Operacion.builder().type(request.getType()).resultado(resultado)
                             .valores(request.getValores()).build();
                     return repository.save(operacion);
@@ -139,12 +129,7 @@ public class OperacionServicelmpl implements OperacionService {
             if(request.getType().trim().equals("potencia")){
                 OperacionServicelmpl operacionpotencia = new OperacionServicelmpl();
                 String[] arregloCadena = request.getValores().split(", ");
-                List<String> listaModificable = new ArrayList<>(List.of(arregloCadena));
-                String numero1 = "0";
-                String numero2 = "0";
-                numero1= listaModificable.get(0);
-                numero2= listaModificable.get(1);
-                double resultado = operacionpotencia.potencia(Double.parseDouble(numero1),Double.parseDouble(numero2));
+                double resultado = operacionpotencia.potencia(Double.parseDouble(arregloCadena[0]),Double.parseDouble(arregloCadena[1]));
                 Operacion operacion = Operacion.builder().type(request.getType()).resultado(resultado)
                         .valores(request.getValores()).build();
                 return repository.save(operacion);
@@ -153,12 +138,7 @@ public class OperacionServicelmpl implements OperacionService {
             if(request.getType().trim().equals("raiz")){
                 OperacionServicelmpl operacionraiz = new OperacionServicelmpl();
                 String[] arregloCadena = request.getValores().split(", ");
-                List<String> listaModificable = new ArrayList<>(List.of(arregloCadena));
-                String numero1 = "0";
-                String numero2 = "0";
-                numero1= listaModificable.get(0);
-                numero2= listaModificable.get(1);
-                double resultado = operacionraiz.raiz(Double.parseDouble(numero1),Double.parseDouble(numero2));
+                double resultado = operacionraiz.raiz(Double.parseDouble(arregloCadena[0]),Double.parseDouble(arregloCadena[1]));
                 Operacion operacion = Operacion.builder().type(request.getType()).resultado(resultado)
                         .valores(request.getValores()).build();
                 return repository.save(operacion);

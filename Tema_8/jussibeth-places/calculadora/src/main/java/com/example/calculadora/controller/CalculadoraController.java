@@ -25,6 +25,11 @@ public class CalculadoraController {
 
     private final OperacionService service;
 
+    @GetMapping("/test")
+    public String getTest() {
+        return "OK";
+    }
+
     @GetMapping("/operaciones")
     public ResponseEntity<List<Operacion>> getOperaciones() {
 
