@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <script lang="javascript">
+        async function fetchChuck() {
+            try{
+                let response = await fetch ('https://api.chucknorris.io/jokes/random');
+                let response_json = await response.json();
+                document.getElementById("chiste").innerHTML = response_json["value"];
+            }
+            catch (e) {
+                alert("Error al realizar el fetch => " + e.message);
+            }
+        }
+    </script>
+    <head>
+        <link rel = "stylesheet" href="styles.css">
+        <meta charset="utf-8">
+        <title>CHUCK NORRIS SAYS</title>
+    </head>
+    <body>
+        <h1>¿SABIAS QUE? VERSION CHUCK NORRIS</h1>
+        <button onclick = "fetchChuck()">Pulsa para generar un chiste sobre ChuckNorris</button>
+        <p id = "chiste"> VAMOS A GENERAR CHISTES </p>
+    </body>
+</html>
