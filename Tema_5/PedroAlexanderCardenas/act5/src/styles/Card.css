@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container2{
+    margin-top: 1%;
+    padding-top: 10%;
+    padding-bottom: 15%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card-img-top{
+    align-content: center;
+}
+
+.card-title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-bottom: 10%;
+    align-items: center;
+}
