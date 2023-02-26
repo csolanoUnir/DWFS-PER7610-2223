@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>  
+    <script>        
+        const API = "http://localhost:8080";
+        const pedirchiste =()=>{            
+            fetch("https://api.chucknorris.io/jokes/random")
+            .then(response => response.json())
+            .then(json => {document.getElementById("chiste").innerHTML=json.value;})           
+        } 
+    </script>    
+
+    <body>
+        <div>
+            <button onclick="pedirchiste()">CHISTE</button>
+        </div>
+        <div>
+            <p id = "chiste">Esperando un chiste</p>
+        </div> 
+    </body>
+
+</html>
