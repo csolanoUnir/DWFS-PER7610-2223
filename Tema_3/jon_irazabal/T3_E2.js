@@ -15,10 +15,15 @@
  * Ejemplo: duplicador([1,2,3,4]) -> [4,8]
  */
 
-function duplicador(numeros) {
-    return numeros.filter(n => n % 2 === 0).map(n => n * 2);
+const duplicadorPares = arrayNumeros => {
+    return arrayNumeros.filter(function (x) {
+        return (x % 2 == 0);
+    }).map(function (x) {
+        if (x % 2 == 0)
+            return x * 2;
+    });
 }
-
+console.log("Duplicar pares: [1,2,3,4]: " + duplicadorPares([1, 2, 3, 4]));
 
 /**
  * Funcion 2
@@ -29,11 +34,11 @@ function duplicador(numeros) {
  * 
  * Ejemplo: media([1,2,3,4]) -> 2.5
  */
-
-function media(numeros) {
-    return numeros.reduce((accumulator, currentvalue) => accumulator + currentvalue, 0) / numeros.length;
-
+const reducer = (accumulator, currentValue) => accumulator + currentValue; 
+const media = arrayNumeros => {
+    return arrayNumeros.reduce(reducer) / arrayNumeros.length;
 }
+console.log("Media del array: [1,2,3,4]: " + media([1, 2, 3, 4]));
 
 /**
  * Funcion 3
@@ -45,13 +50,13 @@ function media(numeros) {
  * 
  * Ejemplo: eliminarDuplicados([5,1,2,1,3,3,4,5]) -> [2,4]
  */
-
-function eliminarDuplicados(numeros) {
-    let setUniques = new Set();
-    numeros.forEach(n => setUniques.add(n));
-    return Array.from(setUniques);
+const eliminarDuplicados = arrayNumeros => {
+    return arrayNumeros.sort().filter((element, index, self) => {
+        return element !== self[index - 1] && element !== self[index + 1];
+    });
 }
 
+console.log("Eliminar duplicados: [5,1,2,1,3,3,4,5]: " + eliminarDuplicados([5, 1, 2, 1, 3, 3, 4, 5]));
 
 /**
  * Funcion 4
@@ -68,33 +73,22 @@ function eliminarDuplicados(numeros) {
  * Ejemplo: nCharConsec(*, 4, "Est* *** es un ejemplo") -> false (tenemos en cuenta los espacios)
  * Ejemplo: nCharConsec(*, 4, "Est**** es un ejemplo") -> true 
  * Ejemplo: nCharConsec(*, 4, "Est** e* un ej**plo") -> false
- * Ejemplo: nCharConsec(*, 4, "Est** e**** un ej**plo") -> false
  * 
  */
 
-function nCharConsec(caracter, num, cadena) {
-    let count = 0;
-    let previusChar = null;
-    cadena.split('').forEach((charit, idx) => {
-        if (idx > 0 && previusChar!=null) {
-            previusChar = cadena[idx - 1];
+const nCharConsec = (character, count, text) => {
+    return text.split('').reduce(function (charCount, item) {
+        if (item === character) {
+            return charCount + 1;
         }
-        if (charit === caracter) {
-            if (previusChar===null){
-                previusChar = charit;
-            }
-            if (previusChar === charit) {
-                count++;
-            }            
-        }
-        else {
-            count = 0;
-            previusChar = null;
-        }
-    });
-    return count === num;
+        else if (charCount < count) return 0;
+        else return charCount;
+    }, 0) === count;
 }
 
+console.log("¿ * aparece 4 veces seguidas en el texto: 'Est * *** es un ejemplo' ? -> " + nCharConsec("*", 4, "Est* *** es un ejemplo"));
+console.log("¿ * aparece 4 veces seguidas en el texto: 'Est**** es un ejemplo' ? -> " + nCharConsec("*", 4, "Est**** es un ejemplo"));
+console.log("¿ * aparece 4 veces seguidas en el texto: 'Est** e* un ej**plo' ? -> " + nCharConsec("*", 4, "Est** e* un ej**plo"));
 
 /**
  * Funcion 5
@@ -119,41 +113,19 @@ function nCharConsec(caracter, num, cadena) {
  * [7, 5] (2+6+7 /3 = 5)
  * [1, 4] (2+6+7+1 /4 = 4)
  */
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function generador(n){
-    let randomArray = [];
-    for(let i=0;i<n;i++){
-        randomArray.push(getRandomInt(n));
-    }
-
-    let setUniques = new Set();
-    randomArray.forEach(n=>setUniques.add(n));
-
-    let randomUniqueArray = Array.from(setUniques);
-    let resultMap = new Map();
-    let itArrayValues = [];
-    randomUniqueArray.forEach(it=>{
-        itArrayValues.push(it);
-        resultMap.set(it,media(itArrayValues));
+const mediaListaRandom = count => {
+    var map = new Map();
+    var array = Array(count).fill().map(function (x) {
+        return Math.round(Math.random() * 9);
+    }).filter((element, index, self) => {
+        return (element != 0 && index === self.indexOf(element));
     });
-
-    return resultMap;
-
+    console.log("Array(" + count + " valores random) con elementos unicos: " + array);
+    array.reduce(function (media, item) {
+        map.set(item, ((media + item) / (array.indexOf(item) + 1)));
+        return (media + item);
+    }, 0);
+    return map;
 }
 
-console.log("T3_E2 TEST");
-console.log("duplicador([1,2,3,4]):",duplicador([1,2,3,4]));
-console.log("media([1,2,3,4]):",media([1,2,3,4]));
-console.log("eliminarDuplicados([5,1,2,1,3,3,4,5]):",eliminarDuplicados([5,1,2,1,3,3,4,5]));
-
-console.log("nCharConsec(*, 4, 'Est* *** es un ejemplo'):",nCharConsec('*', 4, 'Est* *** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est**** es un ejemplo')",nCharConsec('*', 4, 'Est**** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est** e* un ej**plo')",nCharConsec('*', 4, 'Est** e* un ej**plo'));
-console.log("nCharConsec(*, 4, 'Est** e**** un ej**plo')",nCharConsec('*', 4, 'Est** e**** un ej**plo'));
-
-console.log("generador(6):", generador(6));
-
+console.log(mediaListaRandom(6).entries());

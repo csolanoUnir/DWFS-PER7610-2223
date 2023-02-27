@@ -1,0 +1,40 @@
+.tarjeta{
+    border-radius: 3rem;
+    width:20rem;
+    background: #ffffff;
+    padding:2rem 2rem;
+    margin: 1rem;
+}
+.tarjeta-imagen{
+    width: 100%;
+    border-radius: 1rem;
+}
+.tags{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+.tags .tag{
+    padding: 0 0.4rem;
+    border: #eaeff1 1px solid;
+    border-radius: 1rem;
+    margin-right: 0.2rem;
+    text-align: left;
+}
+
+p{
+    color:#656670;
+}
+
+.button-container{
+    text-align: center;
+    padding-top:1rem;
+}
+
+.button-container .card-button{
+    background:#e0efff;
+    color:#54a3ff;
+    border-radius: 5rem;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+}

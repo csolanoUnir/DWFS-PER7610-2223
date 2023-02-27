@@ -15,9 +15,15 @@
  * Ejemplo: duplicador([1,2,3,4]) -> [4,8]
  */
 
+
+
 function duplicador(numeros) {
-    return numeros.filter(n => n % 2 === 0).map(n => n * 2);
+
+    numeros = numeros.filter(num => num%2 == 0)
+    return numeros.map(num => num * 2);
 }
+
+console.log(duplicador([0,5,4,8,12]))
 
 
 /**
@@ -31,9 +37,17 @@ function duplicador(numeros) {
  */
 
 function media(numeros) {
-    return numeros.reduce((accumulator, currentvalue) => accumulator + currentvalue, 0) / numeros.length;
 
+    suma = 0;
+    numeros.forEach(element => {
+        suma = suma + element;
+    })
+
+    return suma / numeros.length;
 }
+
+console.log(media([0,2,1,3,4]))
+
 
 /**
  * Funcion 3
@@ -46,12 +60,29 @@ function media(numeros) {
  * Ejemplo: eliminarDuplicados([5,1,2,1,3,3,4,5]) -> [2,4]
  */
 
+
+
 function eliminarDuplicados(numeros) {
-    let setUniques = new Set();
-    numeros.forEach(n => setUniques.add(n));
-    return Array.from(setUniques);
+
+    index = []
+    result = []
+    numeros.forEach((valor, indice) => {       
+
+        if (result.indexOf(valor) == -1){
+            result.push(valor)
+        }else{
+            ind = result.indexOf(valor)
+            delete(result[ind])           
+            
+        }        
+    })
+
+    return result.filter(Boolean);
+
 }
 
+console.log(eliminarDuplicados([5,1,2,1,3,3,4,5]))
+console.log('hasta aui')
 
 /**
  * Funcion 4

@@ -14,11 +14,12 @@
  * 
  * Ejemplo: duplicador([1,2,3,4]) -> [4,8]
  */
-
-function duplicador(numeros) {
+var numero= new Array();
+var duplicador=(numeros) =>{
     return numeros.filter(n => n % 2 === 0).map(n => n * 2);
 }
 
+console.log(duplicador([1,2,3,4]));
 
 /**
  * Funcion 2
@@ -30,10 +31,13 @@ function duplicador(numeros) {
  * Ejemplo: media([1,2,3,4]) -> 2.5
  */
 
-function media(numeros) {
+var numero= new Array();
+var media=(numeros)=>{
     return numeros.reduce((accumulator, currentvalue) => accumulator + currentvalue, 0) / numeros.length;
 
 }
+console.log(media([1,2,3,4]));
+
 
 /**
  * Funcion 3
@@ -45,12 +49,14 @@ function media(numeros) {
  * 
  * Ejemplo: eliminarDuplicados([5,1,2,1,3,3,4,5]) -> [2,4]
  */
-
-function eliminarDuplicados(numeros) {
+var numero= new Array();
+var eliminarDuplicados=(numeros) =>{
     let setUniques = new Set();
     numeros.forEach(n => setUniques.add(n));
     return Array.from(setUniques);
 }
+
+console.log(eliminarDuplicados([5,1,2,1,3,3,4,5]));
 
 
 /**
@@ -72,7 +78,7 @@ function eliminarDuplicados(numeros) {
  * 
  */
 
-function nCharConsec(caracter, num, cadena) {
+var nCharConsec=(caracter, num, cadena)=> {
     let count = 0;
     let previusChar = null;
     cadena.split('').forEach((charit, idx) => {
@@ -94,7 +100,7 @@ function nCharConsec(caracter, num, cadena) {
     });
     return count === num;
 }
-
+console.log(nCharConsec('*',4,"Est* *** es un ejemplo"));
 
 /**
  * Funcion 5

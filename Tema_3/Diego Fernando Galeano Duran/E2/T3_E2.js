@@ -14,11 +14,17 @@
  * 
  * Ejemplo: duplicador([1,2,3,4]) -> [4,8]
  */
-
-function duplicador(numeros) {
-    return numeros.filter(n => n % 2 === 0).map(n => n * 2);
+function duplicador(arrayOfNumbers){
+    return arrayOfNumbers.map(function(number){
+        if(number%2==0){
+            return number*2;
+        }
+    }).filter(function(element){
+        return !isNaN(element);
+    });
 }
 
+console.log(duplicador([1,2,3,4]));
 
 /**
  * Funcion 2
@@ -30,10 +36,17 @@ function duplicador(numeros) {
  * Ejemplo: media([1,2,3,4]) -> 2.5
  */
 
-function media(numeros) {
-    return numeros.reduce((accumulator, currentvalue) => accumulator + currentvalue, 0) / numeros.length;
-
+function media(arrayOfNumbers){
+    return arrayOfNumbers.reduce(function(accumulator, currentValue,currentIndex, array){
+        if(currentIndex<array.length-1){
+            return accumulator+currentValue;
+        }else{
+            return (accumulator+currentValue)/array.length;
+        }
+    });
 }
+
+console.log(media([1,2,3,4]));
 
 /**
  * Funcion 3
@@ -46,12 +59,13 @@ function media(numeros) {
  * Ejemplo: eliminarDuplicados([5,1,2,1,3,3,4,5]) -> [2,4]
  */
 
-function eliminarDuplicados(numeros) {
-    let setUniques = new Set();
-    numeros.forEach(n => setUniques.add(n));
-    return Array.from(setUniques);
+function eliminarDuplicados(array){
+    return array.filter(function(value, index, array){
+        return array.filter(element=>element==value).length==1;
+    });
 }
 
+console.log(eliminarDuplicados([5,1,2,1,3,3,4,5]));
 
 /**
  * Funcion 4
@@ -68,33 +82,27 @@ function eliminarDuplicados(numeros) {
  * Ejemplo: nCharConsec(*, 4, "Est* *** es un ejemplo") -> false (tenemos en cuenta los espacios)
  * Ejemplo: nCharConsec(*, 4, "Est**** es un ejemplo") -> true 
  * Ejemplo: nCharConsec(*, 4, "Est** e* un ej**plo") -> false
- * Ejemplo: nCharConsec(*, 4, "Est** e**** un ej**plo") -> false
  * 
  */
 
-function nCharConsec(caracter, num, cadena) {
-    let count = 0;
-    let previusChar = null;
-    cadena.split('').forEach((charit, idx) => {
-        if (idx > 0 && previusChar!=null) {
-            previusChar = cadena[idx - 1];
-        }
-        if (charit === caracter) {
-            if (previusChar===null){
-                previusChar = charit;
+function nCharConsec(characterToSearch, consecutiveRepsToSearch, stringToSearch){
+    return Array.from(stringToSearch).reduce(function(accumulator, currentValue,currentIndex,array){
+        if(currentValue===characterToSearch && array.at(currentIndex+1)===characterToSearch){
+            if(accumulator==0){
+                return accumulator+=2;
+            }else{
+                return accumulator+=1;
             }
-            if (previusChar === charit) {
-                count++;
-            }            
+        }else if(accumulator>0 && accumulator!=consecutiveRepsToSearch){
+            return accumulator-=1;
         }
-        else {
-            count = 0;
-            previusChar = null;
-        }
-    });
-    return count === num;
+        return accumulator;
+    },0)==consecutiveRepsToSearch;
 }
 
+console.log(nCharConsec("*", 4, "Est* *** es un ejemplo"));
+console.log(nCharConsec("*", 4, "Est**** es un ejemplo"));
+console.log(nCharConsec("*", 4, "Est** e* un ej**plo"));
 
 /**
  * Funcion 5
@@ -120,40 +128,14 @@ function nCharConsec(caracter, num, cadena) {
  * [1, 4] (2+6+7+1 /4 = 4)
  */
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function generador(n){
-    let randomArray = [];
-    for(let i=0;i<n;i++){
-        randomArray.push(getRandomInt(n));
-    }
-
-    let setUniques = new Set();
-    randomArray.forEach(n=>setUniques.add(n));
-
-    let randomUniqueArray = Array.from(setUniques);
-    let resultMap = new Map();
-    let itArrayValues = [];
-    randomUniqueArray.forEach(it=>{
-        itArrayValues.push(it);
-        resultMap.set(it,media(itArrayValues));
+function generador(size){
+    let generatedArray=new Array(size).fill(0).map(()=>Math.floor(Math.random() * 10));
+    generatedArray = generatedArray.filter(function(value, index, array){
+        return array.indexOf(value)===index && value!=0;
     });
-
-    return resultMap;
-
+    return new Map(generatedArray.map(function(element,index,array){
+        return [element , media(array.slice(0,index+1))];
+    }));
 }
 
-console.log("T3_E2 TEST");
-console.log("duplicador([1,2,3,4]):",duplicador([1,2,3,4]));
-console.log("media([1,2,3,4]):",media([1,2,3,4]));
-console.log("eliminarDuplicados([5,1,2,1,3,3,4,5]):",eliminarDuplicados([5,1,2,1,3,3,4,5]));
-
-console.log("nCharConsec(*, 4, 'Est* *** es un ejemplo'):",nCharConsec('*', 4, 'Est* *** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est**** es un ejemplo')",nCharConsec('*', 4, 'Est**** es un ejemplo'));
-console.log("nCharConsec(*, 4, 'Est** e* un ej**plo')",nCharConsec('*', 4, 'Est** e* un ej**plo'));
-console.log("nCharConsec(*, 4, 'Est** e**** un ej**plo')",nCharConsec('*', 4, 'Est** e**** un ej**plo'));
-
-console.log("generador(6):", generador(6));
-
+console.log(generador(6));

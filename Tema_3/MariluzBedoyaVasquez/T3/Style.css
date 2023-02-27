@@ -1,0 +1,11 @@
+.container{
+    background-color: darkslateblue;
+    padding: 10px;
+    width: 50%;
+}
+#texto-chiste{
+    color: white;
+}
+#boton-chiste{
+    padding: 10px;
+}

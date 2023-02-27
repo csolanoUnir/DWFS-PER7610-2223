@@ -1,0 +1,9 @@
+.App {
+  background:#ffffff;
+}
+.body-cards{
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #636668;
+}

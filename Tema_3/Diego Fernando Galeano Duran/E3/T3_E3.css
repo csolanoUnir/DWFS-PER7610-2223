@@ -1,0 +1,18 @@
+.jokeApp{
+    background: #18222d;
+}
+
+.jokeContainer{
+    padding:3rem;
+}
+
+.jokeButton{
+    background: #e5e5e5;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+.jokeResult{
+    margin-left:1rem;
+    color:#f3c04b;
+}

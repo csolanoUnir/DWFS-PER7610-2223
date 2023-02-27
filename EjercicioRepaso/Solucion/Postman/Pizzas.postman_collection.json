@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "61a227d6-e439-457e-8984-d7883662bff1",
+		"name": "Pizzas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pizzas Catalogue (pizza ms)",
+			"item": [
+				{
+					"name": "Pizzas",
+					"item": [
+						{
+							"name": "Get Pizza by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/pizzas/special",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"pizzas",
+										"special"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Pizza by Filters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/pizzas?sale=false&vegan=false&name=carbo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"pizzas"
+									],
+									"query": [
+										{
+											"key": "sale",
+											"value": "false"
+										},
+										{
+											"key": "vegan",
+											"value": "false"
+										},
+										{
+											"key": "name",
+											"value": "carbo"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Pizzas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/pizzas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"pizzas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Pizza",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\":\"special\",\n   \"price\":11.50,\n   \"sale\":false,\n   \"vegan\":false,\n   \"description\":\"Our Delicious Pizza special\",\n   \"ingredients\":[\n      \"cheese\", \"mushroom\", \"bacon\", \"garlic\"\n   ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8084/pizzas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"pizzas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify pizza ingredients",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"cheese\", \"mushroom\", \"bacon\"]\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8084/pizzas/special/ingredients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"pizzas",
+										"special",
+										"ingredients"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ingredients",
+					"item": [
+						{
+							"name": "Get All Ingredients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/ingredients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"ingredients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Ingredient",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"pepperoni\",\n    \"description\": \"One of our delicious ingredients!\",\n    \"vegan\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8084/ingredients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"ingredients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Ingredient",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"pepperoni\",\n    \"description\": \"The best pepperoni in the world\",\n    \"vegan\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8084/ingredients/pepperoni",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"ingredients",
+										"pepperoni"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pizzas Orders (pizza order ms)",
+			"item": [
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get Orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pizzas\":[\"carbonara\", \"carbonara\"],\n    \"address\": \"Rue de paradis 17\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Order Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"delivered\":true,\n    \"processed\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/orders/1/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"orders",
+										"1",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pizzas with Zuul",
+			"item": [
+				{
+					"name": "Get All Pizzas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8762/ms-pizza-catalogue/pizzas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8762",
+							"path": [
+								"ms-pizza-catalogue",
+								"pizzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8762/ms-pizza-orders/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8762",
+							"path": [
+								"ms-pizza-orders",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8762/ms-pizza-catalogue/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8762",
+							"path": [
+								"ms-pizza-catalogue",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pizzas\":[\"carbonara\", \"carbonara\"],\n    \"address\": \"Rue de paradis 17\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8762/ms-pizza-orders/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8762",
+							"path": [
+								"ms-pizza-orders",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

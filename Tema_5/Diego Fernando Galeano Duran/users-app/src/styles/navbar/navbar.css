@@ -1,0 +1,23 @@
+.navbar-container{
+    background:#3f454f;
+    display: flex;
+    padding: 3rem;
+}
+.navbar-container .navbar-logo{
+    width:2rem;
+}
+
+.navbar-container .navbar{
+    display: flex;
+    list-style: none;
+    margin:0;
+}
+
+.navbar-container .navbar .navbar-item{
+    padding: 1rem 0.5rem;
+}
+
+.navbar-container .navbar .navbar-item a{
+    color:#ffffff;
+    text-decoration: none;
+}

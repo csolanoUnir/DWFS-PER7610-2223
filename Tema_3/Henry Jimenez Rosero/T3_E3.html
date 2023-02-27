@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Fetch en JavaScript</title>
+	<link rel="stylesheet" href="Style1.css">
+</head>
+
+<body>
+	<h1>Fetch en JavaScript</h1>
+	<a target="_blank" href="henry jimenez rosero">HJR</a>
+	<div class="controldiv">
+		
+		<button class="boton"  id="Boton1" onclick="CambiaContenido()">Dame un chiste!</button>
+		<p   id="resultados" class="manejaboton1">-</p>
+		<script >
+			const nombre2=document.querySelector(".manejaboton1");
+
+			function CambiaContenido(){
+				fetch("https://api.chucknorris.io/jokes/random")
+					.then((response) =>  response.json()) 
+
+					.then(salida => {nombre2.textContent = salida.value;
+					
+					});
+}
+		</script>
+     </div>
+    
+  </body>
+</html>

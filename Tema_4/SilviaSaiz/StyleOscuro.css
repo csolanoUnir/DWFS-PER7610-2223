@@ -1,0 +1,122 @@
+body
+{
+	background-color: #146287;
+	font-family:verdana, sans-serif;
+	line-height: 1.6;
+	color:  #ffffff;
+}
+hr
+{
+	border: solid 0.1em white;
+	width:80%;
+}
+ul {
+  list-style: none; /* Remove default bullets */
+}
+ul li::before {
+  content: "• ";  
+  color: #f9f791;
+  font-weight: bold; 
+  width: 1em; 
+  margin-left: -3em; 
+
+}
+ul
+{
+	border-left: solid 0.2em white;
+
+}
+.amarillo
+{
+	color: #f9f791;
+}
+
+.texto-centrado
+{
+	text-align: center;
+}
+
+.columna {
+  flex: 50%;
+}
+
+.columna-contenido
+{
+	width: 60%;
+}
+.contenedor
+ {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+}
+.icono-contacto
+{
+	font-size:36px;
+	margin-right: 1.5em;
+}
+.dot {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #bbb;
+  display: inline-block;
+}
+.fondo-amarillo
+{
+  background-color: #f9f791;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

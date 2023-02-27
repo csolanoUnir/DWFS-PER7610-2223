@@ -1,0 +1,22 @@
+body{
+    background-color: black;
+    color: rgb(247, 92, 200);
+}
+
+button{
+    border-radius: 200px;
+    height: 100px;
+    background-color:rgb(184, 121, 216);
+    color: aliceblue;
+    margin-top: auto;
+    font-size: 30px;
+}
+
+button:hover{
+    opacity: 70%;
+    background-color: rgb(194, 162, 224);
+}
+
+p{
+    font-size: 80px;
+}

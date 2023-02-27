@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+        <title>UNIR: Generador de Chistes</title>
+        <script>
+            
+            let loadedResponse = false;
+
+            const API_URL = 'https://api.chucknorris.io/jokes/random';
+            const CHISTES_DIV = 'chistesDiv';
+            const CAJA_CHISTE_TEXT = 'cajaChisteText';
+
+            function dameUnChiste(){
+
+                let procesaRespuesta = (data) => {
+                    document.getElementById(CAJA_CHISTE_TEXT).innerHTML = data.value;
+                    addChisteToDiv(data);
+                }
+                
+                fetch(API_URL)
+                .then((response) => response.json())
+                .then(procesaRespuesta);
+
+            }
+
+            function addChisteToDiv(chiste){
+                let newChisteHtml = `<a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">                                   
+                              <span class="fa-regular fa-face-grin-squint-tears" alt="twbs"></span>
+                              <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div>                                  
+                                  <p class="mb-0 opacity-75">${chiste.value}</p>
+                                </div>
+                                <small class="opacity-50 text-nowrap">${chiste.created_at}</small>
+                              </div>
+                            </a>`;
+                let chistesElement =  document.getElementById(CHISTES_DIV);
+                let currentHtml= chistesElement.innerHTML;
+                chistesElement.innerHTML = newChisteHtml + currentHtml ;
+            }
+
+        </script>
+    </head>
+    <body>
+        <header class="container">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container">
+                  <a class="navbar-brand fs-1" href="#">
+                    <span class="yellow">
+                        <i class="fa-regular fa-face-laugh-beam"></i>                        
+                    </span>
+                    <span class="fw-bold">
+                        Generador de chistes
+                    </span>
+                  </a>
+                </div>
+              </nav>
+        </header>
+        <main class="container"> 
+            <div class="pt-5 text-center">
+                <button class="btn btn-outline-primary btn-lg" onclick="dameUnChiste()"> Dame un chiste </button>
+            </div>
+            <div class="mt-4 d-flex justify-content-center" id="cajaChisteParent">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">                                            
+                      <p class="card-text fs-5" id="cajaChisteText"></p>                      
+                    </div>
+                  </div>
+            </div>            
+            <div class="text-center mt-2">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        <div class="list-group w-auto" id="chistesDiv">
+                           
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="mt-5">
+            <div class="container">
+                <hr>
+                <div class="text-center fs-6 opacity-50">
+                    UNIR - Ejercicio Desarrollo Web Full Stack - Manuel Japón 2022
+                </div>
+            </div>
+        </footer>        
+    </body>
+</html>

@@ -1,0 +1,42 @@
+.card{
+    width:17rem;
+    background: #ffffff;
+    padding: 3rem 2rem;
+    margin: 1rem;
+}
+
+.card .card-logo{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.card .tags{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.card .tags .tag{
+    padding: 0 0.4rem;
+    border: #eaeff1 1px solid;
+    border-radius: 1rem;
+    margin-right: 0.2rem;
+    text-align: left;
+}
+
+.card p{
+    color:#656670;
+}
+
+.card .button-container{
+    text-align: center;
+    padding-top:1rem;
+}
+
+.card .button-container .card-button{
+    background:#e0efff;
+    color:#54a3ff;
+    border-radius: 5rem;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+}

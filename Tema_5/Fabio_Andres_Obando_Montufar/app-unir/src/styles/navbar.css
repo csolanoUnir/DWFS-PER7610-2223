@@ -1,0 +1,21 @@
+.navbar-container{
+    background:#0f2c5e;    
+}
+.navbar-container .navbar-logo{
+    width:1rem;
+}
+
+.navbar-container .navbar{
+    display: flex;
+    list-style: none;
+    margin:0;
+}
+
+.navbar-container .navbar .navbar-item{
+    padding: 1rem 0.5rem;
+}
+
+.navbar-container .navbar .navbar-item a{
+    color:#ffffff;
+    text-decoration: none;
+}

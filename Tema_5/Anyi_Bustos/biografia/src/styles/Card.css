@@ -1,0 +1,10 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.card-img-top {
+    width: 300px !important;
+    height: 300px;
+}

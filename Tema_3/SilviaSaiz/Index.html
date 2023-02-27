@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Chistes Aleatorios</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body>
+    <script lang="javascript">
+        function ObtenerChiste() {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => response.json())
+                .then(datos => {
+                    document.getElementById("AreaChiste").innerHTML = datos.value;
+                })
+                .catch(e => {
+                    document.getElementById("AreaChiste").innerHTML = "Error obteniendo el chiste " + e.message;
+                });
+        }
+    </script>
+    <h2>Generador de chistes aleatorios de Chuck Norris</h2>
+    <div>
+        <button onclick="ObtenerChiste()">¡Dame un chiste!</button>
+        <br>
+        <br>
+        <textarea id="AreaChiste"></textarea>
+    </div>
+</body>
+
+</html>
