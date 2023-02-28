@@ -13,7 +13,7 @@
 | -------------| -------------------------------------- | -------------   | -------------------------|
 | POST         | /usuario/registrar                     | { nombre="Mari", email="prueba@gmail.com, password="1234" }   |  201 OK, 400 Bad Request |
 | GET          | /usuario/{id}                          | N/A             | 200 OK, 404 Not Found
-| GET          | /usuario/nombre?email?                   |                | 200 OK, 404 Not Found
+| GET          | /usuario/ ?nombre?email                  |                | 200 OK, 404 Not Found
 | DELETE       | /usuario/{id}                          |                 | 200 OK, 404 Not Found
 | POST         | /partidas/partida                      | { jugador1="", jugador2="", fecha="", tablero="", duracion="" } | 201 OK, 400 Bad Request |
 | DELETE       | /partidas/partida/{id}                 | N/A | 200 OK, 404 Not Found
