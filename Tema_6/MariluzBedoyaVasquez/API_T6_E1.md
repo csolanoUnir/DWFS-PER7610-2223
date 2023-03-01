@@ -11,16 +11,16 @@
  
 | Método HTTP  | URI                                    | Body            | Respuesta                |
 | -------------| -------------------------------------- | -------------   | -------------------------|
-| POST         | /usuario/registrar                     | { nombre="Mari", email="prueba@gmail.com, password="1234" }   |  201 OK, 400 Bad Request |
-| GET          | /usuario/{id}                          | N/A             | 200 OK, 404 Not Found
-| GET          | /usuario/ ?nombre?email                  |                | 200 OK, 404 Not Found
-| DELETE       | /usuario/{id}                          |                 | 200 OK, 404 Not Found
-| POST         | /partidas/partida                      | { jugador1="", jugador2="", fecha="", tablero="", duracion="" } | 201 OK, 400 Bad Request |
-| DELETE       | /partidas/partida/{id}                 | N/A | 200 OK, 404 Not Found
+| POST         | /usuarios/                     | { nombre="Mari", email="prueba@gmail.com, password="1234" }   |  201 OK, 400 Bad Request, 500 Error del servidor |
+| GET          | /usuarios/{id}                          | N/A             | 200 OK, 404 Not Found |
+| GET          | /usuarios    | ?nombre?email     |    N/A body            | 200 OK, 404 Not Found |
+| DELETE       | /usuarios/{id}                          |                 | 200 OK, 404 Not Found |
+| POST         | /partidas                      | { jugador1="", jugador2="", fecha="", tablero="", duracion="" } | 201 OK, 400 Bad Request , 500 Error del servidor|
+| DELETE       | /partidas/partida/{id}                 | N/A | 200 OK, 404 Not Found |
 | PUT          | /partidas/partida/{id}                 | { jugador1="",jugador2="", fecha="", tablero="", duracion="" }  | 201 OK, 400 Bad Request |
-| GET          | /partidas/partida/{id}                 | N/A  | 200 OK, 404 Not Found
-| POST         | /partidas/partida/{id}/barco           | { coordenadas=[x,y], cantidad_cuadrados=2, tablero=1} | 201 OK, 400 Bad Request |
-| DELETE       | /partidas/partida/{id}/barco/{id}      | N/A | 200 OK, 404 Not Found
-| GET          | /partidas/partida/{id}/barco           | N/A  | 200 OK, 404 Not Found
-| POST         | /partidas/partida/{id}/disparo         | { jugador="", coordenadas=[x,y], tablero=""} |  201 OK, 400 Bad Request |
+| GET          | /partidas/partida/{id}                 | N/A  | 200 OK, 404 Not Found |
+| PATCH        | /partidas/partida/{id}/barco  - Agregar un barco a una partida       | { coordenadas=[x,y], cantidad_cuadrados=2, tablero=1} | 201 OK, 400 Bad Request, 500 Error del servidor |
+| PATCH        | /partidas/partida/{id}/barco/{id}  - Eliminar un barco de una partida    | N/A | 200 OK, 404 Not Found |
+| GET          | /partidas/partida/{id}/barco           | N/A  | 200 OK, 404 Not Found |
+| PATCH        | /partidas/partida/{id}/disparo     - Registrar un disparo en una partida    | { jugador="", coordenadas=[x,y], tablero=""} |  201 OK, 400 Bad Request, 500 Error del servidor |
 
