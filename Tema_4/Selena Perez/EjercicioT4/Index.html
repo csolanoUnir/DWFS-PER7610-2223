@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <div>
+            <meta charset="utf-8">
+            <meta name="description" content="Curriculum Vitae Selena Pérez">
+            <title> Curriculum Vitae Selena Pérez</title>
+            <link rel="stylesheet" href="Estilos.css">
+            <script>
+                    window.onload=function(){
+                        let doc1=document.getElementById("switch-label");
+                        doc1.addEventListener('click', function() {
+                            if(doc1.checked) {
+                                modo.className="modooscuro"
+                            } else if(!doc1.checked){
+                                modo.className="";
+                            }
+                        });
+                        let tags=document.body.children;
+                        console.log(tags);
+                        const myArray = Array.from(tags);
+                        myArray.forEach(element => console.log(element));
+                        for (let i=0; i<tags.length;i++){
+                            console.log(tags[i].tagName)
+                            for (let j=0; j<tags[i].children.length;j++){
+                                console.log("  "+tags[i].children[j].tagName);
+                                for (let k=0; k<tags[i].children[j].children.length;k++){
+                                     console.log(tags[i].children[j].children[k].tagName);
+                                }
+                            }
+                        }
+                        
+                    }
+
+            </script>
+        </div>
+    </head>
+    <body id="modo">
+        <header>
+            <div class="titulo-CV">
+                <div id="titulo">
+                    <h1>
+                    <p>PEREZ MERA SELENA LICETH</p>
+                </h1>
+                </div>
+                <div class="switch-button">
+                    <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
+                      <label for="switch-label" class="switch-button__label"></label>
+             
+                </div>
+                <div class="form-check form-switch" id="cCheck1">
+                    <input type="checkbox" class="form-check-input" name="" id="check1">
+                    
+                </div>
+                <br>
+                <div id="subtitulo">
+                    <h3> <P>
+                        INGENIERA EN SISTEMAS</P>
+                </h3>
+                </div>
+            </div>
+         
+        </header>
+     
+    <section><!-- The <section> HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions. -->
+            <hr></hr>
+            <br>
+       
+        <ul><!-- Inicia la list de elementos -->
+            <li id="profile">
+                <h1>PERFIL</h1>
+                <br>
+                <p title="summary" id="sumaryprofile" >
+                    Profesional en el área de informática con 4 años de experiencia y como persona, soy muy organizada, autodidacta, responsable y con una gran motivación, muy capaz de adaptarme a cualquier circunstancia y dar siempre lo mejor de mí en cualquier proyecto, al mismo tiempo que me esfuerzo por trabajar en equipo y fomentar valores 
+					como los del compañerismo.
+                </p>
+                <br></br>
+                <h1> CONTACTO </h1>
+                <br>
+            <ul>
+                <li>
+                     <i class="icono1"> </i>
+                </li>
+                <li>
+                    <p title="contactotel" class="iconotext" id="sumarytel" >
+                            0987877190
+                    </p>
+                    
+                </li>
+            </ul>
+            <ul>
+               <li>
+                  
+                     <i class="icono2"></i> 
+                </li>
+                <li>
+                        <p title="summaryemail" class="iconotext" id="sumaryemail" align="left" style="color:#ffffff">
+                        selenamera1998@gmail.com
+                        </p>
+                    </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <i class="icono3"></i> 
+                   </li>
+                    <li>
+                       <p title="summarytel" class="iconotext" id="sumarytel" >
+                        El Carmen-Manabí-Ecuador
+                         </p>
+                    </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="experience">
+                <h1> EXPERIENCIA
+                </h1>
+                <p>
+                    <div class="experienciacol">
+                        <ul>
+                            <li>LIFE-MET
+                                <p> Gerente-Administrativo
+                                 Manejo de sistemas informáticos, sistemas contables e historias clínicas.
+                                </p></li>
+                            <li>ULEAM
+                                <p> Centro de Computos 
+                                Actualización de software, instalación de programas, configuración de Sistemas, 
+								mantenimiento de computadoras, detectar y contrarrestar vulnerabilidades 
+                                </p>
+                            </li>
+                            <li>Escuela Tacio Castillo Díaz
+                                <p> Docente de planta
+                                Impartir clases de informática a estudiantes de básica y bachillerato
+                                </p>
+                            </li>
+                            <li>Hospital Básico El Carmen
+                                <p> Administración de institución
+								Actualización de información, registro y digitalización de datos, y rotación en áreas internas.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </p>
+
+            </li>
+        </ul>
+    
+        <ul>
+            <li id="caps">
+             
+                <h1>HABILIDADES</h1>
+                <br>
+                <table>
+                    <tr>
+                        <td class="content-rate" >
+                            <p>Trabajo en equipo</p>
+                        </td>
+                        <td><p class="capacidades" title="1">◉◉◉◉◉</p> 
+                       </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Pensamiento creativo</p>
+                            </td>
+                        <td>  <p class="capacidades" title="2">◉◉◉◉◉</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Innovación</p>
+                            </td>
+                        <td>  <p class="capacidades" title="3">◉◉◉◉◉</p>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Toma de decisiones</p>
+                            </td>
+                        <td>  <p class="capacidades" title="3">◉◉◉◉◉</p> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Buena comunicación</p>
+                            </td>
+                        <td>  <p class="capacidades" title="4">◉◉◉◉◉</p> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Capacidad de aprendizaje</p>
+                            </td>
+                        <td>  <p class="capacidades" title="5">◉◉◉◉◉</p> 
+                        </td>
+                    </tr>
+                </table>
+                             
+            </li>
+			
+            <li id="educacion">
+                <h1>EDUCACIÓN</h1>
+                <p>
+                    <div class="edu">
+                        <ul>
+                            <li>Universidad Laica Eloy Alfaro de Manabí extensión El Carmen
+                                <p> Ingeniera en sistemas</p>
+                            </li>
+                            <li>Universidad internacional de la Rioja-UNIR
+                                <p> Master Universitario en Ingeniería de Software y sistemas Informáticos-Cursando
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </p>
+            </li>
+			
+            <li>
+                <div>
+                    <br></br>
+					
+                <h1 class="pasat"> CAPACITACIONES</h1>
+                <br>
+                <p> | Android y Kotlin Desde Cero A Profesional Completo- Udemy|
+				Desarrollador web desde cero paso a paso - Udemy | Fundamentos De Cyberseguridad- Escuela Politécnica Del Litoral, Ministerio de Telecomunicaciones y de la Sociedad de la Información, y CISCO  |
+				Curador De Datos - Ministerio De Telecomunicaciones Y De La Sociedad De La Información Y Claro Ecuador| 
+				Curso De Hacking Ético Y Cyberseguridad - Udemy</p>
+                </div>
+            </li>
+            </br>
+            <hr>
+        </ul>
+    </section>
+    </body>
+</html>
